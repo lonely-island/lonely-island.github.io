@@ -1,98 +1,108 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>莫烦python学习笔记1 | lonelyisland&#39;s blog</title>
-<meta name="description" content="好好学习，认真生活">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://lonely-island.github.io/favicon.ico?v=1591861985833">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="https://lonely-island.github.io/favicon.ico?v=1591862547337">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://lonely-island.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="莫烦python学习笔记1 | lonelyisland&#39;s blog - Atom Feed" href="https://lonely-island.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+    <meta name="description" content="入门
+人工神经网络靠正向、反向传播，优化数学模型。
+神经网络
+输入层：直接接受传入的信息
+输出层：输出的结果，通过结果看出神经网络对事物的认知
+隐藏层：输入和输出之间各神经元组成的各个层面
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+如何训练
 
-
+准备很多数据
+训练（通过对比错误和正..." />
+    <meta name="keywords" content="pytorch" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-  
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://lonely-island.github.io">lonelyisland&#39;s blog</a></h3>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://lonely-island.github.io">
+  <img class="avatar" src="https://lonely-island.github.io/images/avatar.png?v=1591862547337" alt="">
+  </a>
+  <h1 class="site-title">
+    lonelyisland&#39;s blog
+  </h1>
+  <p class="site-description">
+    好好学习，认真生活
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
   </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
-        
-          <li>
-            
-              <a href="/" class="menu">
-                首页
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/archives" class="menu">
-                归档
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/tags" class="menu">
-                标签
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/post/about" class="menu">
-                关于
-              </a>
-            
-          </li>
-        
-      </ul>
-    </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   </div>
-</nav>
+</div>
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <article class="article">
-            <h1>莫烦python学习笔记1</h1>
-            <p class="article-meta">
-              2020-06-08
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              莫烦python学习笔记1
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-06-08
+              </span>
+              <span>
+                3 min read
+              </span>
               
-                <a href="https://lonely-island.github.io/tag/8WvW9dPu9/" class="badge ">
-                  pytorch
+                <a href="https://lonely-island.github.io/tag/8WvW9dPu9/" class="post-tag">
+                  # pytorch
                 </a>
               
-            </p>
+            </div>
             
-            <div class="post-content">
-              <h2 id="入门">入门</h2>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="入门">入门</h2>
 <p>人工神经网络靠正向、反向传播，优化数学模型。</p>
 <h2 id="神经网络">神经网络</h2>
 <p>输入层：直接接受传入的信息</p>
@@ -139,103 +149,77 @@
 <p>去掉输出层并且套上另外一个神经网络的输入层（比如这里已经获取关于右边词汇分类的代表特征，作为下一个神经网络的输入，可以进一步判断各个物品的价值）</p>
 <figure data-type="image" tabindex="8"><img src="https://raw.githubusercontent.com/lonelyislandXD/picLib/master/img/20200608152514.png" alt="" loading="lazy"></figure>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%85%A5%E9%97%A8">入门</a></li>
+<li><a href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">神经网络</a></li>
+<li><a href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D">梯度下降</a></li>
+<li><a href="#%E9%BB%91%E7%9B%92">黑盒</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
             </div>
           </article>
         </div>
-        <div class="paper" data-aos="fade-in">
-          
-        </div>
-        
-      </div>
 
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://lonely-island.github.io/images/avatar.png?v=1591861985833" class="no-responsive avatar">
-    <div class="text-muted">好好学习，认真生活</div>
-    <div class="social-container">
-      
         
-          <a href="https://github.com/lonely-island" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
+
         
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="https://lonely-island.github.io/post/pytorch-zhong-guan-yu-torchsqueezehe-torchunsqueeze/">pytorch中关于torch.squeeze()和torch.unsqueeze</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://lonely-island.github.io/post/mo-fan-pytorch-xue-xi-bi-ji-2/">莫烦pytorch学习笔记2</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://lonely-island.github.io/post/mo-fan-python-xue-xi-bi-ji-1/">莫烦python学习笔记1</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://lonely-island.github.io/post/about/">关于</a>
-            </li>
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://lonely-island.github.io/tag/8WvW9dPu9/" class="badge secondary">
-          pytorch
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://lonely-island.github.io/atom.xml" target="_blank">RSS</a>
-  </div>
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://lonely-island.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
 </div>
 
-
+      </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad()
 
-<script type="application/javascript">
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-AOS.init();
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-hljs.initHighlightingOnLoad()
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
-</script>
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-
-
-
+    </script>
   </body>
 </html>
