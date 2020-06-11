@@ -2,18 +2,19 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>pytorch中关于torch.squeeze()和torch.unsqueeze | lonelyisland&#39;s blog</title>
-<link rel="shortcut icon" href="https://lonely-island.github.io/favicon.ico?v=1591862547337">
+<title>pytorch部分函数学习笔记 | lonelyisland&#39;s blog</title>
+<link rel="shortcut icon" href="https://lonely-island.github.io/favicon.ico?v=1591867577939">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://lonely-island.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="pytorch中关于torch.squeeze()和torch.unsqueeze | lonelyisland&#39;s blog - Atom Feed" href="https://lonely-island.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="pytorch部分函数学习笔记 | lonelyisland&#39;s blog - Atom Feed" href="https://lonely-island.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="pytorch中关于torch.squeeze()和torch.unsqueeze
+    <meta name="description" content="[TOC]
+torch.squeeze()和torch.unsqueeze
 squeeze用法主要是对数据的维度进行压缩和解压。
-torch.squeeze()对数据的维度进行压缩，去掉一个维度为1的维度，如一行或者一列。一个一行三..." />
+torch.squeeze()对数据的维度进行压缩，去掉一个维度为1的维度，如一行或者一列。一个一行三列（1,..." />
     <meta name="keywords" content="pytorch" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -23,7 +24,7 @@ torch.squeeze()对数据的维度进行压缩，去掉一个维度为1的维度�
       <div class="main-content">
         <div class="site-header">
   <a href="https://lonely-island.github.io">
-  <img class="avatar" src="https://lonely-island.github.io/images/avatar.png?v=1591862547337" alt="">
+  <img class="avatar" src="https://lonely-island.github.io/images/avatar.png?v=1591867577939" alt="">
   </a>
   <h1 class="site-title">
     lonelyisland&#39;s blog
@@ -76,14 +77,14 @@ torch.squeeze()对数据的维度进行压缩，去掉一个维度为1的维度�
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              pytorch中关于torch.squeeze()和torch.unsqueeze
+              pytorch部分函数学习笔记
             </h2>
             <div class="post-info">
               <span>
                 2020-06-11
               </span>
               <span>
-                2 min read
+                4 min read
               </span>
               
                 <a href="https://lonely-island.github.io/tag/8WvW9dPu9/" class="post-tag">
@@ -94,7 +95,8 @@ torch.squeeze()对数据的维度进行压缩，去掉一个维度为1的维度�
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h2 id="pytorch中关于torchsqueeze和torchunsqueeze">pytorch中关于torch.squeeze()和torch.unsqueeze</h2>
+                <p>[TOC]</p>
+<h2 id="torchsqueeze和torchunsqueeze">torch.squeeze()和torch.unsqueeze</h2>
 <p>squeeze用法主要是对数据的维度进行压缩和解压。</p>
 <p><code>torch.squeeze()</code>对数据的维度进行压缩，去掉一个维度为1的维度，如一行或者一列。一个一行三列（1,3）的数去掉第一个维数为一的维度之后就变成（3）行。squeeze(a)就是将a中所有为1的维度删掉。不为1的维度没有影响。a.squeeze(N) 就是去掉a中指定的维数为一的维度。还有一种形式就是b=torch.squeeze(a，N) a中去掉指定的定的维数为一的维度。</p>
 <p><code>torch.unsqueeze()</code>这个函数主要是对数据维度进行扩充。给指定位置加上维数为一的维度，比如原本有个三行的数据（3），在0的位置加了一维就变成一行三列（1,3）。a.squeeze(N) 就是在a中指定位置N加上一个维数为1的维度。还有一种形式就是b=torch.squeeze(a，N) a就是在a中指定位置N加上一个维数为1的维度</p>
@@ -133,13 +135,50 @@ tensor([ 0.0402, -0.6615, -0.9040]) #这里只有1维
 torch.Size([3])
 torch.Size([1, 3])
 </code></pre>
+<h2 id="torchmanual_seed">torch.manual_seed()</h2>
+<p>这个函数是指定随机数种子的函数，之前不太理解这个函数的用法， 主要作用是产生“固定”的随机数，如何理解固定的随机数呢？这个函数设定随机数种子，并且会成为一个全局变量，也就是说这个函数在一个实例中只存在一处就可以了，否则后面声明的会覆盖掉前面声明的：</p>
+<pre><code class="language-python">&quot;&quot;&quot;
+name: manual_seed.py
+author: lonelyisland
+&quot;&quot;&quot;
+import torch
+
+#part 1 Set manual_seed(1)
+torch.manual_seed(1)
+print(torch.rand(2))
+print(&quot;=================&quot;)
+
+#part 2 Set manual_seed(2)
+torch.manual_seed(2)
+print(torch.randn(2))
+print(&quot;=================&quot;)
+
+#part 3 Set manual_seed(1)
+torch.manual_seed(1)
+print(torch.randn(2))
+print(torch.randn(2))
+</code></pre>
+<p>输出：</p>
+<pre><code>tensor([0.7576, 0.2793])
+=================
+tensor([ 0.3923, -0.2236])
+=================
+tensor([0.6614, 0.2669])
+tensor([0.0617, 0.6213])
+</code></pre>
+<p>这个种子主要是为了使多次运行这段代码时得到同样的一组随机数（便于固定一组随机的模型参数，使得结果可以复现），注释掉part1 part2，运行2次，结果均为：</p>
+<pre><code class="language-python">tensor([0.6614, 0.2669])
+tensor([0.0617, 0.6213])
+</code></pre>
+<p>可以看到第一二次运行的结果，输出是一样的，达到了固定的目的，但是同一个实例中多次随机是不一样的，达到了随机的目的。</p>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#pytorch%E4%B8%AD%E5%85%B3%E4%BA%8Etorchsqueeze%E5%92%8Ctorchunsqueeze">pytorch中关于torch.squeeze()和torch.unsqueeze</a></li>
+<li><a href="#torchsqueeze%E5%92%8Ctorchunsqueeze">torch.squeeze()和torch.unsqueeze</a></li>
+<li><a href="#torchmanual_seed">torch.manual_seed()</a></li>
 </ul>
 </li>
 </ul>
