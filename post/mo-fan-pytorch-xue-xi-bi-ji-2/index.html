@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>莫烦pytorch学习笔记2 | lonelyisland&#39;s blog</title>
+<meta name="description" content="好好学习，认真生活">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://lonely-island.github.io/favicon.ico?v=1591861985833">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://lonely-island.github.io/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://lonely-island.github.io">lonelyisland&#39;s blog</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>莫烦pytorch学习笔记2</h1>
+            <p class="article-meta">
+              2020-06-09
+              
+                <a href="https://lonely-island.github.io/tag/8WvW9dPu9/" class="badge success">
+                  pytorch
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <h2 id="pytorch">pytorch</h2>
+<p>类似numpy，pytorch就是在神经网络领域代替numpy的模块</p>
+<p><strong>神经网络在做什么？</strong></p>
+<ul>
+<li>线性拟合</li>
+<li>分类</li>
+</ul>
+<h2 id="安装">安装</h2>
+<p>pytorch类似tensorflow使用tensor表示高维信息</p>
+<p>参考<a href="https://www.cnblogs.com/lonelyisland/p/12809422.html">pytorch环境搭建</a></p>
+<p>或者看pytorch官方文档</p>
+<p>官网命令安装了两个东西</p>
+<ul>
+<li>torch</li>
+<li>torchvision:有一些数据库以及预训练好的网络，可以直接下载到本地的直接用--transform learning)</li>
+</ul>
+<h2 id="对比numpy和pytorch">对比numpy和pytorch</h2>
+<p>可以进行一些矩阵相关的运算</p>
+<p><a href="https://morvanzhou.github.io/tutorials/machine-learning/torch/2-01-torch-numpy/">莫烦</a></p>
+<p>另外参考pytorch官方网站文档</p>
+<h2 id="variable变量">variable变量</h2>
+<p><a href="https://morvanzhou.github.io/tutorials/machine-learning/torch/2-02-variable/">莫烦</a></p>
+<h2 id="为什么需要激励函数">为什么需要激励函数？</h2>
+<ul>
+<li>
+<p>线性方程</p>
+<p>y = Wx</p>
+</li>
+<li>
+<p>非线性方程</p>
+<p>y = AF(Wx) ---掰弯了233</p>
+</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/lonelyislandXD/picLib/master/img/20200608163101.png" alt="image-20200608163055519" loading="lazy"></figure>
+<p>激励函数必须使可微分的，在反向传播back propagation的时候，只有可微分的才可以把误差传递回去</p>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/lonelyislandXD/picLib/master/img/20200608163251.png" alt="image-20200608163248878" loading="lazy"></figure>
+<p>需要注意的是，如果隐藏层比较少，可以随便选择激活函数，在隐藏层比较多的时候，需谨慎考虑，存在<a href="%5Bhttps://www.google.com/search?q=%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8%E5%92%8C%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1&amp;oq=%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8%E5%92%8C%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1&amp;aqs=chrome..69i57.4453j0j7&amp;sourceid=chrome&amp;ie=UTF-8%5D(https://www.google.com/search?q=%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8%E5%92%8C%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1&amp;oq=%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8%E5%92%8C%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1&amp;aqs=chrome..69i57.4453j0j7&amp;sourceid=chrome&amp;ie=UTF-8)">梯度爆炸和梯度消失</a>的问题</p>
+<p><strong>默认首选</strong></p>
+<ul>
+<li>
+<p>少量隐藏层中可以尝试各种</p>
+</li>
+<li>
+<p>CNN中推荐relu</p>
+</li>
+<li>
+<p>RNN 推荐relu 和 tanh</p>
+</li>
+</ul>
+<h2 id="激励函数activation-function">激励函数activation function</h2>
+<p>学习资料：</p>
+<ul>
+<li></li>
+<li>
+<p>见莫烦python的介绍激励函数视频</p>
+</li>
+</ul>
+<p>几种激活函数图像</p>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/lonelyislandXD/picLib/master/img/20200608163813.png" alt="image-20200608163811659" loading="lazy"></figure>
+<p>另外softmax是一种做出来是概率图，不是线图</p>
+<p>关于图像可以看莫烦python教程关于matplotlib，numpy以及pandas的介绍</p>
+<h2 id="回归关系拟合">回归（关系拟合）</h2>
+<p>回归：损失函数一般使用<code>torch.nn.MSELoss()</code></p>
+<pre><code class="language-python">import torch
+import matplotlib.pyplot as plt
+
+x = torch.unsqueeze(torch.linspace(-1, 1, 100), dim=1)  # x data (tensor), shape=(100, 1)
+y = x.pow(2) + 0.2*torch.rand(x.size())                 # noisy y data (tensor), shape=(100, 1)
+
+# 画图
+plt.scatter(x.data.numpy(), y.data.numpy())
+plt.show()
+</code></pre>
+<h2 id="分类">分类</h2>
+<p>分类：损失函数一般使用<code>torch.nn.CrossEntropyLoss()</code>:比如类别[0,0,1] 计算出的概率[0.1,0.2,0.7]</p>
+<h2 id="快速搭建法">快速搭建法</h2>
+<p>主要直接采用<code>torch.nn</code>提供的类来搭建--&gt;对比之前使用<code>import torch.nn.functional as F</code>之后使用一系列函数如<code>relu()</code></p>
+<p>使用<code>import torch.nn.functional as F</code>搭建</p>
+<pre><code class="language-python">import torch
+import torch.nn.functional as F
+
+class Net(torch.nn.Module):
+    def __init__(self, n_feature, n_hidden, n_output):
+        super(Net, self).__init__()
+        self.hidden = torch.nn.Linear(n_feature, n_hidden)
+        self.predict = torch.nn,Linear(n_hidden, n_output)
+        
+    def forward(self, x):
+        x = F.relu(self.hidden(x))
+        x = self.predict(x)
+        return x
+</code></pre>
+<p>使用<code>torch.nn</code>提供的类搭建</p>
+<pre><code class="language-python">import torch
+
+net = torch.nn.Sequential(
+	torch.nn.Linear(2,10)
+    torch.nn.ReLU()
+    torch.nn.Linear(10,2),
+)
+</code></pre>
+<h2 id="保存提取">保存提取</h2>
+<p>主要有两种方式：</p>
+<ul>
+<li>
+<p>保存整个网络</p>
+<pre><code class="language-python">torch.save(net1, 'net.pkl')
+</code></pre>
+</li>
+<li>
+<p>只保存网络中的参数（速度快，占内存少）</p>
+<pre><code class="language-python">torch.save(net1.state_dict, 'net_params.pkl')
+</code></pre>
+</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://lonely-island.github.io/post/mo-fan-python-xue-xi-bi-ji-1/">
+                <h3 class="post-title">
+                  莫烦python学习笔记1
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://lonely-island.github.io/images/avatar.png?v=1591861985833" class="no-responsive avatar">
+    <div class="text-muted">好好学习，认真生活</div>
+    <div class="social-container">
+      
+        
+          <a href="https://github.com/lonely-island" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://lonely-island.github.io/post/pytorch-zhong-guan-yu-torchsqueezehe-torchunsqueeze/">pytorch中关于torch.squeeze()和torch.unsqueeze</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://lonely-island.github.io/post/mo-fan-pytorch-xue-xi-bi-ji-2/">莫烦pytorch学习笔记2</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://lonely-island.github.io/post/mo-fan-python-xue-xi-bi-ji-1/">莫烦python学习笔记1</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://lonely-island.github.io/post/about/">关于</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://lonely-island.github.io/tag/8WvW9dPu9/" class="badge warning">
+          pytorch
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://lonely-island.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>

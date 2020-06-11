@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lonely-island.github.io</id>
     <title>lonelyisland&apos;s blog</title>
-    <updated>2020-06-08T07:27:21.704Z</updated>
+    <updated>2020-06-11T07:53:07.407Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lonely-island.github.io"/>
     <link rel="self" href="https://lonely-island.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://lonely-island.github.io/images/avatar.png</logo>
     <icon>https://lonely-island.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, lonelyisland&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[pytorch中关于torch.squeeze()和torch.unsqueeze]]></title>
+        <id>https://lonely-island.github.io/post/pytorch-zhong-guan-yu-torchsqueezehe-torchunsqueeze/</id>
+        <link href="https://lonely-island.github.io/post/pytorch-zhong-guan-yu-torchsqueezehe-torchunsqueeze/">
+        </link>
+        <updated>2020-06-11T07:51:33.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[莫烦pytorch学习笔记2]]></title>
+        <id>https://lonely-island.github.io/post/mo-fan-pytorch-xue-xi-bi-ji-2/</id>
+        <link href="https://lonely-island.github.io/post/mo-fan-pytorch-xue-xi-bi-ji-2/">
+        </link>
+        <updated>2020-06-09T08:26:41.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[莫烦python学习笔记1]]></title>
         <id>https://lonely-island.github.io/post/mo-fan-python-xue-xi-bi-ji-1/</id>
