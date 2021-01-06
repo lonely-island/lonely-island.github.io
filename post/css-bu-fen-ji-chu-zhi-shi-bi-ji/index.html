@@ -1,0 +1,264 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>## css部分基础知识笔记 | lonelyisland&#39;s blog</title>
+<link rel="shortcut icon" href="https://lonely-island.github.io/favicon.ico?v=1609916191826">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://lonely-island.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="## css部分基础知识笔记 | lonelyisland&#39;s blog - Atom Feed" href="https://lonely-island.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="margin和padding区别
+margin指的是外边距属性，padding是内边距。见盒模型：
+
+代码示例
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://lonely-island.github.io">
+  <img class="avatar" src="https://lonely-island.github.io/images/avatar.png?v=1609916191826" alt="">
+  </a>
+  <h1 class="site-title">
+    lonelyisland&#39;s blog
+  </h1>
+  <p class="site-description">
+    好好学习，认真生活
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/lonely-island" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              ## css部分基础知识笔记
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-01-06
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="margin和padding区别">margin和padding区别</h3>
+<p>margin指的是外边距属性，padding是内边距。见盒模型：<br>
+<img src="https://lonely-island.github.io/post-images/1609916003036.jpg" alt="" loading="lazy"><br>
+代码示例</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+            div{
+                border: 1px solid red;
+                float: left;
+                margin: auto 20px;
+                width: 100px;
+                height: 100px;
+            }
+            a{background:pink; padding-left:60px;}
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+&lt;div&gt;&lt;a&gt;11111&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;22222&lt;/div&gt;
+ 
+    &lt;/body&gt;
+&lt;/html&gt;
+    
+</code></pre>
+<p>结果<br>
+<img src="https://lonely-island.github.io/post-images/1609916096246.jpg" alt="" loading="lazy"></p>
+<h3 id="各个样式的优先级">各个样式的优先级</h3>
+<p>内联&gt;id&gt;class</p>
+<p>内联的样式如下：</p>
+<pre><code class="language-html">&lt;h1 style=&quot;color:white;&quot;&gt;
+    阿巴阿巴
+&lt;/h1&gt;
+</code></pre>
+<p>使用id的样式如下:</p>
+<pre><code class="language-html">&lt;style&gt;
+    #blue-text {
+        color: blue;
+    }
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;h1 id=&quot;blue-text&quot;&gt;
+        阿巴阿巴
+    &lt;/h1&gt;
+&lt;/body&gt;
+</code></pre>
+<p>使用class的样式如下:</p>
+<pre><code class="language-html">&lt;style&gt;
+    .red-text {
+        color: red;
+    }
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;h1 class=&quot;red-text&quot;&gt;
+        阿巴阿巴
+    &lt;/h1&gt;
+&lt;/body&gt;
+</code></pre>
+<p>最后可用<code>!important</code>绝对保证覆盖某个css格式<code>color: red!important;</code></p>
+<h3 id="自定义变量的作用域">自定义变量的作用域</h3>
+<pre><code class="language-html">&lt;style&gt;
+  :root { --color: blue; }
+  div { --color: green; }
+  #alert { --color: red; }
+  * { color: var(--color); }
+&lt;/style&gt;
+
+&lt;p&gt;蓝色&lt;/p&gt;
+&lt;div&gt;绿色&lt;/div&gt;
+&lt;div id=&quot;alert&quot;&gt;红色&lt;/div&gt;
+</code></pre>
+<p>上面代码中，三个选择器都声明了--color变量。不同元素读取这个变量的时候，会采用优先级最高的规则，因此三段文字的颜色是不一样的。(实际效果就是上面标注的颜色)</p>
+<p>这就是说，变量的作用域就是它所在的选择器的有效范围。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#margin%E5%92%8Cpadding%E5%8C%BA%E5%88%AB">margin和padding区别</a></li>
+<li><a href="#%E5%90%84%E4%B8%AA%E6%A0%B7%E5%BC%8F%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7">各个样式的优先级</a></li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F">自定义变量的作用域</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://lonely-island.github.io/post/mo-fan-pytorch-xue-xi-bi-ji-3/">
+              <h3 class="post-title">
+                莫烦pytorch学习笔记3
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://lonely-island.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
